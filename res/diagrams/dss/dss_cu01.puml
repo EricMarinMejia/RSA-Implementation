@@ -1,0 +1,12 @@
+@startuml
+hide footbox
+
+title DSS - CU01 Générer les clés publique et privée
+
+actor ":Utilisateur Récipient" as U
+participant ":Système" as S
+
+U -> S : genererCles(pNombrePremier : int, \nqNombrePremier: int, eExposantInversible: int)
+S --> U : Affiche un message à l'utilisateur pour lui \nsignaler que les clés ont été générées correctement.
+
+@enduml

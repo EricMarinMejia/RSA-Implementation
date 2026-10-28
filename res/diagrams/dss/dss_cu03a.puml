@@ -1,0 +1,12 @@
+@startuml
+hide footbox
+
+title DSS - CU03a Decrypter à l'aide de la clé privée : \nLa clé privée n'a pas été trouvée au chemin fourni
+
+actor ":Utilisateur Récipient" as U
+participant ":Système" as S
+
+U -> S : decrypter(cheminClePrivee: String, messageEncrypte: String)
+S --> U : Affiche un message d'erreur pour signaler que la clé privée \nn'a pas été trouvée
+
+@enduml

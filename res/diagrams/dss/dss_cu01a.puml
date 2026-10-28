@@ -1,0 +1,12 @@
+@startuml
+hide footbox
+
+title DSS - CU01a Générer les clés publique et privée : \nP ou Q non premier
+
+actor ":Utilisateur Récipient" as U
+participant ":Système" as S
+
+U -> S : genererCles(pNombrePremier : int, \nqNombrePremier: int, eExposantInversible: int)
+S --> U : Affiche un message d'erreur à l'utilisateur pour lui \nsignaler que pNombrePremier ou qNombrePremier\n n'est pas un nombre premier
+
+@enduml

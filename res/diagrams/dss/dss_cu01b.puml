@@ -1,0 +1,12 @@
+@startuml
+hide footbox
+
+title DSS - CU01b Générer les clés publique et privée : \ne non inversible modulo s
+
+actor ":Utilisateur Récipient" as U
+participant ":Système" as S
+
+U -> S : genererCles(pNombrePremier : int, \nqNombrePremier: int, eExposantInversible: int)
+S --> U : Affiche un message d'erreur à l'utilisateur pour lui \nsignaler que eExposantInversible n'est pas inversible \nà s=(pNombrePremier-1)*(qNombrePremier-1)
+
+@enduml

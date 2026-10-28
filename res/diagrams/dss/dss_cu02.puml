@@ -1,0 +1,12 @@
+@startuml
+hide footbox
+
+title DSS - CU02 Encrypter à l'aide de la clé publique
+
+actor ":Utilisateur Envoyeur" as U
+participant ":Système" as S
+
+U -> S : encrypter(cheminClePublique: String, message: String)
+S --> U : Affiche la chaine de caractères message encryptée
+
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+hide footbox
+
+title DSS - CU02a Encrypter à l'aide de la clé publique : \nLa clé publique n'a pas été trouvée au chemin fourni
+
+actor ":Utilisateur Envoyeur" as U
+participant ":Système" as S
+
+U -> S : encrypter(cheminClePublique: String, message: String)
+S --> U : Affiche un message d'erreur pour signaler que la clé publique \nn'a pas été trouvée
+
+@enduml
