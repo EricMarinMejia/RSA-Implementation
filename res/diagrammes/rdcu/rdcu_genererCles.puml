@@ -1,0 +1,37 @@
+@startuml
+
+title RDCU - genererCles(pNombrePremier : int, qNombrePremier : int, eExposantInversible : int)
+
+participant ":RSA" as R
+participant ":MathModule" as M
+participant ":KeyModule" as K
+
+-> R : genkeys(pNombrePremier : int,\n qNombrePremier : int,\n eExposantInversible : int) : void
+activate R
+
+R -> M : PCGD(eExposantInversible : int,\n sIndicatriceEulerPQ: int) : boolean
+activate M
+
+note over M
+  sIndicatriceEulerPQ = (p-1) * (q-1)
+end note
+
+R <--M : pgcd : int
+
+opt pgcd == 1
+
+  R -> M : bezout(e^(-1) : int, sIndicatriceEulerPQ : int) : int
+  R <-- M : dInverse : int
+  deactivate M
+
+  R -> K : "ecrireCles(nProduit : int, eExposantInversible : int, dInverse : int) : void
+  activate K
+  deactivate K
+
+end opt
+
+deactivate K
+
+
+hide footbox
+@enduml
